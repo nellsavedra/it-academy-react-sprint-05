@@ -1,0 +1,21 @@
+{
+  "name": "it-academy-react-sprint-05",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+	"sass": "sass -w --no-source-map ./sass/main.scss ./css/main.css",
+	"ts": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nellsavedra/it-academy-react-sprint-05.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nellsavedra/it-academy-react-sprint-05/issues"
+  },
+  "homepage": "https://github.com/nellsavedra/it-academy-react-sprint-05#readme"
+}
