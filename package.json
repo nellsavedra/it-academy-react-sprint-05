@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-	"sass": "sass -w --no-source-map ./sass/main.scss ./css/main.css",
-	"ts": "tsc --watch"
+    "sass": "sass -w --no-source-map --style=compressed ./sass/main.scss ./css/main.css",
+    "ts": "tsc --watch"
   },
   "repository": {
     "type": "git",

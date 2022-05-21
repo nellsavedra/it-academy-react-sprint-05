@@ -2,6 +2,12 @@ interface Joke {
 	joke: string;
 }
 
+const jokeElement = <HTMLElement>document.querySelector("#joke");
+jokeElement.addEventListener("change", function(): void {
+	console.log("Changed");
+	
+});
+
 const jokesHistory: Joke[] = [];
 
 async function getJoke(): Promise<Joke> {
@@ -26,5 +32,5 @@ const printJoke = async (): Promise<void> => {
 
 	domElement.innerHTML = data.joke;
 
-	console.log(data);
+	// console.log(data);
 };

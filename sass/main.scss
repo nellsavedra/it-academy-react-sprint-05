@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+// Not recommended like this, i know it
+$primary-color: #ffb703;
+$secondary-color: #E63946;
+$base-margin: 1rem;
+$base-padding: 1rem;
+$background-color: #FFF;
+
+@function margin($size) {
+	@return $base-margin * $size;
+}
+
+@function padding($size) {
+	@return $base-padding * $size;
+}
+
+:root {
+	--primary-color: #{$primary-color};
+	--secondary-color: #{$secondary-color};
+	--base-margin: #{$base-margin};
+	--base-padding: #{$base-padding};
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 16px;
+	font-family: "Roboto", sans-serif;
+	color: #212121;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+%inner-container {
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+%flex {
+	display: flex;
+}
+
+.container {
+	@extend %flex;
+	flex-direction: column;
+	height: 100vh;
+	padding: padding(1)
+}
+
+#header {
+	@extend %inner-container;
+	margin-bottom: margin(3);
+	min-height: 15vh;
+	padding-top: padding(5);
+}
+
+#main {
+	@extend %inner-container;
+	min-height: 50vh;
+	text-align: center;
+	position: relative;
+
+	h1 {
+		flex-grow: 1;
+		width: 100%;
+		margin-bottom: margin(5);
+		font-weight: bold;
+	}
+
+	.blob-container {
+		position: absolute;
+	}
+	.joke-container {
+		@extend %flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 15vh;
+		margin-bottom: margin(5);
+	}
+	#joke {
+		font-weight: lighter;
+		padding: 0 padding(5);
+	}
+
+	button {
+		padding: padding(0.75) padding(1.5);
+		background-color: $primary-color;
+		color: #212121;
+		border-radius: .5rem;
+		border: none;
+		font-size: 1rem;
+		transition: box-shadow 300ms ease;
+		box-shadow: 0 5px 0 darken($primary-color, 8), 0 8px 6px  darken(rgba($primary-color, 0.25), 55);
+		position: relative;
+		font-weight: bold;
+		cursor: pointer;
+		text-shadow: 0 1px rgba($background-color, 0.25);
+		
+		&:hover {
+			background-color: lighten($primary-color, 8);
+			
+		}
+		
+		&:active {
+			transform: translateY(5px);
+			box-shadow: inset 0 2px 5px darken(rgba($primary-color, 0.25), 50)
+		}
+	}
+}
+
+#footer {
+	@extend %inner-container;
+}

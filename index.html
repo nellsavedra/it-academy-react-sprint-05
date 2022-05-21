@@ -10,17 +10,23 @@
 	</head>
 	<body>
 		<div class="container">
-			<header></header>
-			<main>
-				<h1>How you feel today?, boost your mood with this jokes!</h1>
-				<div class="blob-container">
-					<div id="joke">
-						
+			<div class="header-container">
+				<header id="header"></header>
+			</div>
+			<div class="main-container">
+				<main id="main">
+					<h1>How you feel today?, let's have some dad jokes!</h1>
+					<div class="blob-container">
 					</div>
-					<button onclick="printJoke()">Otro chiste</button>
-				</div>
-			</main>
-			<footer></footer>
+					<div class="joke-container">
+						<h2 id="joke">Come on dude, hit the button!</h2>
+					</div>
+					<button onclick="printJoke()" class="btn btn-secondary btn-rounded">Tell me a joke!</button>
+				</main>
+			</div>
+			<div class="footer-container">
+				<footer id="footer"></footer>
+			</div>
 		</div>
 		<script src="./js/main.js"></script>
 	</body>
