@@ -8,11 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const jokeElement = document.querySelector("#joke");
-jokeElement.addEventListener("change", function () {
-    console.log("Changed");
-});
+// reportJokes
 const jokesHistory = [];
+let fetchedJoke = {};
 function getJoke() {
     return __awaiter(this, void 0, void 0, function* () {
         const response = yield fetch("https://icanhazdadjoke.com", {
@@ -29,7 +27,25 @@ function getJoke() {
     });
 }
 const printJoke = () => __awaiter(void 0, void 0, void 0, function* () {
-    const data = yield getJoke(), domElement = document.querySelector("#joke");
-    domElement.innerHTML = data.joke;
-    // console.log(data);
+    const data = yield getJoke(), jokeElement = document.querySelector("#joke"), jokeButton = document.querySelector(".print-joke"), jokeTitle = document.querySelector(".joke-title"), blobElement = document.querySelector(".blob-container"), scores = document.querySelector(".scores-container");
+    fetchedJoke = new Joke(data.joke);
+    jokeTitle.innerHTML = "Good, Meh or Nah?";
+    blobElement.style.transform = "translateY(-50%) scale(4)";
+    jokeButton.classList.add("display-none");
+    scores.classList.remove("display-none");
+    jokeElement.innerHTML = fetchedJoke.joke;
+    scores.innerHTML = `
+	<button onclick="saveToHistory(3)">😂</button>
+	<button onclick="saveToHistory(2)">😑</button>
+	<button onclick="saveToHistory(1)">😓</button>
+	`;
+    // console.log(fetchedJoke);
 });
+const saveToHistory = (score) => {
+    const currentDate = new Date();
+    fetchedJoke.score = score;
+    fetchedJoke.date = currentDate.toISOString();
+    jokesHistory.push(fetchedJoke);
+    printJoke();
+    console.log(jokesHistory);
+};

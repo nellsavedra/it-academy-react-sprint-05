@@ -4,30 +4,36 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="shortcut icon" href="data:," type="image/x-icon">
-		<link rel="stylesheet" href="./css/main.css">
+		<link rel="shortcut icon" href="data:," type="image/x-icon" />
+		<link rel="stylesheet" href="./css/main.css" />
 		<title>Morning Jokes - Really Nice Company Inc.</title>
 	</head>
 	<body>
 		<div class="container">
 			<div class="header-container">
-				<header id="header"></header>
+				<header id="header">Weather</header>
 			</div>
 			<div class="main-container">
 				<main id="main">
-					<h1>How you feel today?, let's have some dad jokes!</h1>
-					<div class="blob-container">
-					</div>
+					<h1 class="joke-title">How you feel today?</h1>
+
 					<div class="joke-container">
-						<h2 id="joke">Come on dude, hit the button!</h2>
+						<div class="blob-container">
+							<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+								<path fill="#92dce5" d="M42.2,-71.9C54.6,-65.9,64.5,-54.4,71.8,-41.5C79,-28.6,83.7,-14.3,81.8,-1.1C79.9,12.1,71.5,24.3,64,36.8C56.5,49.2,49.8,62,39.3,72.5C28.8,82.9,14.4,90.9,0.6,89.8C-13.2,88.7,-26.3,78.6,-37.2,68.4C-48.1,58.2,-56.6,47.9,-65.5,36.5C-74.4,25.1,-83.7,12.5,-86.6,-1.7C-89.6,-15.9,-86.2,-31.9,-76.5,-41.9C-66.8,-51.9,-50.7,-56,-36.9,-61.2C-23.1,-66.3,-11.6,-72.6,1.7,-75.5C14.9,-78.4,29.8,-77.9,42.2,-71.9Z" transform="translate(100 100)" />
+							</svg>
+						</div>
+						<h2 id="joke">Let's have some jokes!</h2>
 					</div>
-					<button onclick="printJoke()" class="btn btn-secondary btn-rounded">Tell me a joke!</button>
+					<button onclick="printJoke()" class="btn btn-secondary btn-rounded print-joke">Start</button>
+					<div class="scores-container display-none"></div>
 				</main>
 			</div>
 			<div class="footer-container">
 				<footer id="footer"></footer>
 			</div>
 		</div>
+		<script src="./js/Joke.js"></script>
 		<script src="./js/main.js"></script>
 	</body>
 </html>
