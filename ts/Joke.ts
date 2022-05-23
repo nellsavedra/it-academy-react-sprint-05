@@ -2,6 +2,7 @@ class Joke {
 	_joke: string;
 	_score: number | undefined;
 	_date: Date | undefined;
+	_value: string | undefined;
 	constructor(joke: string) {
 		this._joke = joke;
 	}
@@ -28,5 +29,13 @@ class Joke {
 
 	set date(date) {
 		this._date = date;
+	}
+	
+	get value() {
+		 return this._value;
+	}
+	
+	set value(value) {
+		this._value = value;
 	}
 }

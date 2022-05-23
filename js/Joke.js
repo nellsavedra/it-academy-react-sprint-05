@@ -21,4 +21,10 @@ class Joke {
     set date(date) {
         this._date = date;
     }
+    get value() {
+        return this._value;
+    }
+    set value(value) {
+        this._value = value;
+    }
 }

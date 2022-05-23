@@ -14,6 +14,11 @@ $background-color: #fff;
 	@return $base-padding * $size;
 }
 
+@keyframes floating {
+	0% { transform: translateY(0px);}
+	100% { transform: translateY(15px);}
+}
+
 :root {
 	--primary-color: #{$primary-color};
 	--secondary-color: #{$secondary-color};
@@ -74,6 +79,10 @@ img {
 	display: none !important;
 }
 
+.text-center {
+	text-align: center;
+}
+
 .container {
 	@extend %flex;
 	flex-direction: column;
@@ -88,13 +97,13 @@ img {
 	@extend %inner-container;
 	margin-bottom: margin(1.5);
 	padding-top: padding(5);
-	
+
 	&.weather {
-		letter-spacing: .05rem;
+		letter-spacing: 0.05rem;
 	}
-	
+
 	.weather-now {
-		text-transform: uppercase
+		text-transform: uppercase;
 	}
 }
 
@@ -108,6 +117,15 @@ img {
 		font-weight: bold;
 	}
 
+	.blob-bubble-bottom {
+		animation: 5s infinite alternate floating;
+		position: absolute;
+		z-index: -2;
+		max-width: 10rem;
+		left: -100%;
+		bottom: -100%;
+	}
+
 	.blob-container {
 		position: absolute;
 		z-index: -1;
@@ -115,6 +133,10 @@ img {
 		transform: translateY(-55%);
 		width: 45vw;
 		transition: all 300ms ease;
+		
+		.background-expanded{
+			transition: all 300ms ease;
+		}
 	}
 	.joke-container {
 		@extend %flex;
@@ -173,11 +195,13 @@ img {
 			&:hover {
 				--primary-color: #{$secondary-color};
 			}
-
 		}
 	}
 }
 
+
 #footer {
 	@extend %inner-container;
 }
+
+
