@@ -14,11 +14,6 @@ $background-color: #fff;
 	@return $base-padding * $size;
 }
 
-@keyframes floating {
-	0% { transform: translateY(0px);}
-	100% { transform: translateY(15px);}
-}
-
 :root {
 	--primary-color: #{$primary-color};
 	--secondary-color: #{$secondary-color};
@@ -31,14 +26,15 @@ html {
 	font-size: 16px;
 	font-family: "Roboto", sans-serif;
 	color: #333;
+	
+	@media (max-width: 767px) {
+		font-size: 14px;
+	}
 }
 *,
 *:before,
 *:after {
 	box-sizing: inherit;
-}
-
-body {
 }
 
 body,
@@ -91,12 +87,16 @@ img {
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
+	position: relative;
+	
+	@media (max-width: 767px){
+		padding: padding(2);
+	}
 }
 
 #header {
 	@extend %inner-container;
-	margin-bottom: margin(1.5);
-	padding-top: padding(5);
+	margin-bottom: margin(1);
 
 	&.weather {
 		letter-spacing: 0.05rem;
@@ -109,7 +109,6 @@ img {
 
 #main {
 	@extend %inner-container;
-	min-height: 50vh;
 	text-align: center;
 
 	h1 {
@@ -117,27 +116,6 @@ img {
 		font-weight: bold;
 	}
 
-	.blob-bubble-bottom {
-		animation: 5s infinite alternate floating;
-		position: absolute;
-		z-index: -2;
-		max-width: 10rem;
-		left: -100%;
-		bottom: -100%;
-	}
-
-	.blob-container {
-		position: absolute;
-		z-index: -1;
-		top: 55%;
-		transform: translateY(-55%);
-		width: 45vw;
-		transition: all 300ms ease;
-		
-		.background-expanded{
-			transition: all 300ms ease;
-		}
-	}
 	.joke-container {
 		@extend %flex;
 		align-items: center;
@@ -146,6 +124,10 @@ img {
 		margin-bottom: margin(5);
 		flex-direction: column;
 		position: relative;
+
+		@media (max-width: 767px) {
+			min-height: 50vh;
+		}
 	}
 	#joke {
 		font-weight: lighter;
@@ -199,9 +181,18 @@ img {
 	}
 }
 
-
-#footer {
+.blob-container {
 	@extend %inner-container;
+	position: absolute;
+	z-index: -1;
+	top: 50%;
+	width: auto;
+	transform: translateY(-50%);
+	transition: all 1000ms ease;
+	display: flex;
+	justify-content: center;
+
+	.background-expanded {
+		transition: all 300ms ease;
+	}
 }
-
-

@@ -1,1 +1,0 @@
-const API_KEY: string = "<add the API key from OpenWeather here>";
