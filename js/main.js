@@ -11,6 +11,24 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 // reportJokes
 const jokesHistory = [];
 let fetchedJoke = {};
+function getWeather() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch("https://api.openweathermap.org/data/2.5/weather?id=3128760&appid=15e7c1f4d8c0ae5e37513d36738b8433&units=metric", {
+        // method: "GET",
+        // headers: {
+        // 	"Accept": "application/json",
+        // 	"User-Agent": "IT Academy Student (https://github.com/nellsavedra/it-academy-react-sprint-05)",
+        // },
+        }).then(function (response) {
+            return response.json();
+        });
+        const weatherDOM = document.querySelector(".weather-now");
+        const tempDOM = document.querySelector(".temperature-now");
+        weatherDOM.innerHTML = response.weather[0].description;
+        tempDOM.innerHTML = response.main.temp.toString();
+    });
+}
+getWeather();
 function getJoke() {
     return __awaiter(this, void 0, void 0, function* () {
         const response = yield fetch("https://icanhazdadjoke.com", {

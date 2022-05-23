@@ -62,7 +62,7 @@ img {
 }
 
 %inner-container {
-	max-width: 960px;
+	max-width: 1200px;
 	margin: 0 auto;
 }
 
@@ -86,8 +86,16 @@ img {
 
 #header {
 	@extend %inner-container;
-	margin-bottom: margin(3);
+	margin-bottom: margin(1.5);
 	padding-top: padding(5);
+	
+	&.weather {
+		letter-spacing: .05rem;
+	}
+	
+	.weather-now {
+		text-transform: uppercase
+	}
 }
 
 #main {
